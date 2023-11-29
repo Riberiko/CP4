@@ -1,47 +1,56 @@
-# *FILL IN NAME* API Documentation
-*Fill in a short description here about the API's purpose.*
+# Pokemon API Documentation
+The Pokemon API provides information about the various pokemon
 
-## *Fill in Endpoint 1 Title*
-**Request Format:** *Fill in example request format*
+## Get a list of all pokemon's in this service.
+**Request Format:** /api/pokemon
 
-**Request Type:** *Fill in request type*
+**Request Type:** GET
 
-**Returned Data Format**: Plain Text
+**Returned Data Format**: Application/JSON
 
-**Description:** *Fill in description*
+**Description:** Return a list of all of the Pokemon that you can look up in this API.
 
-
-**Example Request:** *Fill in example request*
+**Example Request:** /api/pokemon
 
 **Example Response:**
-*Fill in example response in the ticks*
-
-```
-
+``` json
+{data : [
+  {
+    id: 1,
+    name: 'Flameon',
+    type: 'Fire',
+    imageUrl: 'https://via.placeholder.com/150',
+  },
+  {
+    id: 2,
+    name: 'Aquaflare',
+    type: 'Water',
+    imageUrl: 'https://via.placeholder.com/150',
+  },
+  ...
+]}
 ```
 
 **Error Handling:**
-*Fill in an example of the error handling*
+- N/A
 
-## *Fill in Endpoint 2 Title*
-**Request Format:** *Fill in example request format*
+## Lookup a Pony's Information
+**Request Format:** /api/:id
 
-**Request Type:** *Fill in request type*
+**Request Type:** GET
 
-**Returned Data Format**: JSON
+**Returned Data Format**: TEXT
 
-**Description:** *Fill in description*
+**Description:** Given a pokemon id, it returns a test of the basic pokemon description
 
-**Example Request:** *Fill in example request*
+**Example Request:** /api/2
 
 **Example Response:**
-*Fill in example response in the {}*
-
-```json
-{
-
-}
+```text
+A water-themed Pokémon that creates powerful water jets to navigate and attack.
 ```
 
 **Error Handling:**
-*Fill in an example of the error handling*
+- Possible 400 (invalid request) errors (all plain text):
+  - If passed in an invalid pony id, returns an error with the message: `no pokemon found with the id of ${id}`
+  - If id is not passed in: `Please Provide the id of the pokemon`

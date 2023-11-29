@@ -1,3 +1,10 @@
+/**
+ * Name : Riberiko Niyomwungere
+ * Date : November 29, 2023
+ *
+ * This is the pokemon data for the server to give to the clinet
+ */
+
 const pokemonData = [
     { id: 1, name: 'Flameon', type: 'Fire', imageUrl: 'https://via.placeholder.com/150', description: 'A fiery Pokémon with a blazing mane that can melt anything in its path.' },
     { id: 2, name: 'Aquaflare', type: 'Water', imageUrl: 'https://via.placeholder.com/150', description: 'A water-themed Pokémon that creates powerful water jets to navigate and attack.' },

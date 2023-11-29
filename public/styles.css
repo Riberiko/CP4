@@ -1,4 +1,9 @@
-/* styles.css */
+/* 
+  Name : Riberiko Niyomwungere
+  Date : November 29, 2023
+
+  This is the css file for the client side html file
+*/
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -44,7 +49,6 @@ body {
     object-fit: contain;
   }
 
-   /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -58,10 +62,9 @@ body {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .modal-content {
   background-color: black;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
   width: fit-content;

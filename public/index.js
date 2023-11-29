@@ -1,3 +1,9 @@
+/**
+ * Name : Riberiko Niyomwungere
+ * Date : November 29, 2023
+ *
+ * This is the main script for the pokemon app
+ */
 'use strict';
 (()=>{
   let allPokemon, pokemonListContainer, modal, btn, span
@@ -13,8 +19,13 @@
     setupSearchBar()
 
     window.onclick = function(event) { //closing
+      const errorM = document.getElementById('errorM')
       if (event.target == modal) {
         modal.style.display = "none";
+      }
+      if (event.target == errorM)
+      {
+        errorM.style.display = 'none'
       }
     }
 
@@ -25,15 +36,20 @@
     document.getElementById('update').onclick = () => {
       // Fetch Pokémon data from the backend API
       fetch('/api/pokemon')
+      .then(res => statusCheck(res))
       .then((response) => response.json())
-      .then((pokemonData) => {
-        console.log(pokemonData)
+      .then((responseData) => {
         pokemonListContainer.innerHTML = ''
-        pokemonData.forEach((pokemon) => {
+        responseData.data.forEach((pokemon) => {
           createCard(pokemon)
-          allPokemon = pokemonData
+          allPokemon = responseData.data
         });
-      });
+      })
+      .catch(e => { // handling error
+        document.getElementById('errorM').onclick = (e) => {
+          e.target.display = 'block'
+        }
+      })
     }
   }
 
@@ -62,7 +78,8 @@
       <p>Type: ${pokemon.type}</p>
     `;
     pokemonCard.onclick = ()=> {
-      fetch(`/api/${pokemon.id}`)
+      fetch(`/api/${pokemon.id+30}`)
+      .then(res => statusCheck(res))
       .then(res => res.text())
       .then(textData => {
         const pokiClicked = allPokemon.find(poki => poki.id == pokemon.id)
@@ -72,7 +89,24 @@
         modal.querySelector('#pokemon-id').innerText = pokemon.id
         modal.style.display = "block";
       })
+      .catch(err => { //handle error
+        const errorM = document.getElementById('errorM')
+        errorM.querySelector('p').innerText = err
+
+        errorM.querySelector('.close').onclick = () => {
+          errorM.style.display = "none";
+        }
+
+        errorM.style.display = "block";
+        })
     }
     pokemonListContainer.appendChild(pokemonCard);
+  }
+
+  function statusCheck(response)
+  {
+    console.log(response)
+    if(!response.ok) throw new Error(`${response.status}, Please make sure that you are connected to internet and/or refresh`)
+    else return response
   }
 })()
