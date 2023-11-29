@@ -1,27 +1,25 @@
-# Pony API Documentation
-The Pony API provides information about the various pony citizens living in Equestria and to be able to interact with each of them individually.
+# Pokemon API Documentation
+The Pokemon API provides information about the various pokemon
 
 ## Get a list of all Pony's in this service.
-**Request Format:** /all
+**Request Format:** /api/pokemon
 
 **Request Type:** GET
 
-**Returned Data Format**: Plain Text
+**Returned Data Format**: Application/JSON
 
-**Description:** Return a list of all of the Ponies that you can look up in this API.
+**Description:** Return a list of all of the Pokemon that you can look up in this API.
 
-**Example Request:** /all
+**Example Request:** /api/pokemon
 
 **Example Response:**
 ```
-Princess Twilight Sparkle
-Rainbow Dash
-Pinkie Pie
-Rarity
-Applejack
-Fluttershy
-Princess Celestia
-Sunset Shimmer
+[
+  {
+
+  }
+  ...
+]
 ...
 ```
 
@@ -29,15 +27,15 @@ Sunset Shimmer
 - N/A
 
 ## Lookup a Pony's Information
-**Request Format:** /:name/:quotenum
+**Request Format:** /api/:id
 
 **Request Type:** GET
 
 **Returned Data Format**: JSON
 
-**Description:** Given a valid pony name, it returns a JSON of the basic pony information. A valid pony name does not contain any spaces and capitalized via the UpperCamelCase scheme. An optional quotes parameter may be passed in with the number of quotes to return for a particular pony. The quotes parameter default to returning 10 quotes unless specified.
+**Description:** Given a pokemon id, it returns a JSON of the basic pokemon information. returning the name, id, imageUrl and decription
 
-**Example Request:** /RainbowDash/2
+**Example Request:** /api/2
 
 **Example Response:**
 ```json

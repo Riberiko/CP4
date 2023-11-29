@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./index.js"></script>
+  <title>Pokémon App</title>
+</head>
+<body>
+    <header>
+        <input placeholder="search by name/type" type="search">
+        <input id="update" type="button" value="update pokemon list">
+    </header>
+    <div id="pokemon-list">
+      When ever you wish to get the latest update of the pokemon from the database, Plase click update pokemon list up top
+    </div>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="pokemon-img">
+        <h2 id="pokemon-h2"></h2>
+        <p id="description"></p>
+        <p>ID: <span id="pokemon-id"></span></p>
+      </div>
+    
+    </div>
+</body>
+</html>
